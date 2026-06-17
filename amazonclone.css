@@ -324,3 +324,43 @@ body {
         font-size: 24px;
     }
 }
+
+@media (max-width: 768px) {
+    #cart-sidebar {
+        width: 85% !important;
+        max-width: 320px;
+        right: -100%;
+    }
+
+    #cart-sidebar .cart-header h2 {
+        font-size: 1rem;
+    }
+
+    .cart-footer {
+        padding: 12px;
+    }
+
+    .checkout-btn {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    #cart-sidebar {
+        width: 80% !important;
+        max-width: 280px;
+    }
+
+    .cart-item {
+        gap: 8px;
+    }
+
+    .cart-item-name {
+        font-size: 0.85rem;
+    }
+
+    .cart-item-price {
+        font-size: 0.85rem;
+    }
+}

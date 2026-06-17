@@ -48,7 +48,7 @@ function initCartSidebar() {
   `;
   document.body.appendChild(sidebar);
 
-  
+
   const style = document.createElement("style");
   style.textContent = `
     #cart-sidebar .cart-header {
@@ -172,7 +172,22 @@ function initCart() {
     }
   });
 }
+function closeCart() {
+  const sidebar = document.getElementById("cart-sidebar");
 
+  if (window.innerWidth <= 768) {
+    sidebar.style.right = "-100%";
+  } else {
+    sidebar.style.right = "-420px";
+  }
+
+  document.getElementById("cart-overlay").style.display = "none";
+}
+function openCart() {
+  document.getElementById("cart-sidebar").style.right = "0";
+  document.getElementById("cart-overlay").style.display = "block";
+  renderCartItems();
+}
 function openCart() {
   document.getElementById("cart-sidebar").style.right = "0";
   document.getElementById("cart-overlay").style.display = "block";
@@ -275,13 +290,13 @@ function initAddToCartButtons() {
     if (!btn || !nameEl || !priceEl) return;
 
     const name = nameEl.textContent.trim();
-    
+
     const price = parseInt(priceEl.textContent.replace(/[₹,]/g, ""), 10);
 
     btn.addEventListener("click", () => {
       addToCart(name, price);
 
-      
+
       btn.textContent = "✓ Added!";
       btn.style.background = "#4caf50";
       btn.style.color = "#fff";
@@ -316,7 +331,7 @@ function initSearch() {
       }
     });
 
-    
+
     let noResults = document.getElementById("no-results-msg");
     if (!noResults) {
       noResults = document.createElement("p");
